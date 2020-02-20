@@ -103,15 +103,13 @@ public class GameScreen {
 						" ", " ", " ", " |", },
 				{ "|//|/////////////////////////////////////////////////////////////////////////////|" },
 				{ "|__|_____________________________________________________________________________|" } };
-		gameMap();
+		try {
 		printGameOutline(gameOutline);
 		keyboardInputGameplay(gameOutline);
-
-	}
-
-	private static void gameMap() {
-		// TODO Auto-generated method stub
-		
+		}
+		catch(Exception e) {
+			System.out.println("Game Over, you have hit an obstacle");
+		}
 	}
 
 	public static void keyboardInputGameplay(String[][] gameOutline) {
