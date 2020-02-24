@@ -111,7 +111,6 @@ public class GameScreen {
 			System.out.println("Game Over, you have hit an obstacle");
 		}
 	}
-
 	public static void keyboardInputGameplay(String[][] gameOutline) {
 		// Finding current location of A
 		for (int i = 0; i < gameOutline.length; i++) {
