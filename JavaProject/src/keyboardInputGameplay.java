@@ -11,7 +11,8 @@ import java.util.Scanner;
 						int column = j;
 	
 						// created a loop asking the user to move, and updating the game outline
-						while (true) {
+						boolean isGameRunning = true;
+						while (isGameRunning) {
 							@SuppressWarnings("resource")
 							Scanner scan = new Scanner(System.in);
 							System.out.println("Use Keys (W,S,A,D) to Move");
@@ -20,46 +21,76 @@ import java.util.Scanner;
 							// using switch/case to see which letter is typed by the user
 							switch (userMove) {
 							case "w":
-								gameOutline[row - 1][column] = "A";
-								if (gameOutline[row][column].equals("A")) {
-									gameOutline[row][column] = " ";
-	
+								if (checkCollision.collisionW(gameOutline) == false) {
+									gameOutline[row - 1][column] = "A";
+									if (gameOutline[row][column].equals("A")) {
+										gameOutline[row][column] = " ";
+										row = row - 1;
+									}
 								}
-								row = row - 1;
+								if (checkCollision.collisionW(gameOutline) == true) {
+									isGameRunning = false;
+									System.out.println("Game over");
+									System.exit(0);		
+								}
 								break;
 	
 							case "d":
-								gameOutline[row][column + 3] = "A";
-								if (gameOutline[row][column].equals("A")) {
-									gameOutline[row][column] = " ";
-	
+								if (checkCollision.collisionD(gameOutline) == false) {
+									gameOutline[row][column + 3] = "A";
+									if (gameOutline[row][column].equals("A")) {
+										gameOutline[row][column] = " ";
+										column = column + 3;
+									}
 								}
-								column = column + 3;
+								if (checkCollision.collisionD(gameOutline) == true) {
+									isGameRunning = false;
+									System.out.println("Game over");
+									System.exit(0);
+								}
 								break;
+								
 							case "s":
-								gameOutline[row + 1][column] = "A";
-								if (gameOutline[row][column].equals("A")) {
-									gameOutline[row][column] = " ";
-	
+								if (checkCollision.collisionS(gameOutline) == false) {
+									gameOutline[row + 1][column] = "A";
+									if (gameOutline[row][column].equals("A")) {
+										gameOutline[row][column] = " ";
+										row = row + 1;
+									}
 								}
-								row = row + 1;
+								if (checkCollision.collisionS(gameOutline) == true) {
+									isGameRunning = false;
+									System.out.println("Game over");
+									System.exit(0);
+								}
 								break;
+								
 							case "a":
-								gameOutline[row][column - 3] = "A";
-								if (gameOutline[row][column].equals("A")) {
-									gameOutline[row][column] = " ";
-	
+								if (checkCollision.collisionA(gameOutline) == false) {
+									gameOutline[row][column - 3] = "A";
+									if (gameOutline[row][column].equals("A")) {
+										gameOutline[row][column] = " ";
+										column = column - 3;
+									}
 								}
-								column = column - 3;
+								if (checkCollision.collisionA(gameOutline) == true) {
+									isGameRunning = false;
+									System.out.println("Game over");
+									System.exit(0);
+								}
 								break;
 	
 							}
 							runGame.printGameOutline(gameOutline);
 						}
-					}
-}
+					}	
 				}
-		}
+			}
+		}		
 	}
+		
+		
+		
+		
 
 		
