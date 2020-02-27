@@ -3,7 +3,7 @@ import java.util.Scanner;
 	public class keyboardInputGameplay {
 		public static void keyboardInput(String[][] gameOutline) {
 			// instance variable
-			private boolean isGameRunning = false;
+			boolean isGameRunning = true;
 			// Finding current location of A
 			for (int i = 0; i < gameOutline.length; i++) {
 				for (int j = 0; j < (gameOutline[i].length); j++) {
@@ -13,7 +13,7 @@ import java.util.Scanner;
 						int column = j;
 	
 						// created a loop asking the user to move, and updating the game outline
-						boolean isGameRunning = true;
+						//boolean isGameRunning = true;
 						while (isGameRunning) {
 							@SuppressWarnings("resource")
 							Scanner scan = new Scanner(System.in);
