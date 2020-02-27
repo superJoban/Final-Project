@@ -2,6 +2,8 @@ import java.util.Scanner;
 
 	public class keyboardInputGameplay {
 		public static void keyboardInput(String[][] gameOutline) {
+			// instance variable
+			private boolean isGameRunning = false;
 			// Finding current location of A
 			for (int i = 0; i < gameOutline.length; i++) {
 				for (int j = 0; j < (gameOutline[i].length); j++) {
