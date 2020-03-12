@@ -11,7 +11,7 @@ the player is.
 #Getting Started
 
 All you have to do to start this game is to run it. The rest of it will be handled 
-via the program we coded.
+via the program we coded. When the user runs the game, the menu button will pop up where the user can choose from the 3 options displayed: Play, options, and Credits. For demo 2, the only option that works is the Play button. The user must click the play button to start the game.
 
 #Prerequisites
 
