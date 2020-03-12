@@ -16,9 +16,6 @@ public class GameScreen {
 		gameStage = new Stage();
 		gameStage.setScene(gameScene);
 		
-		if (StartScreen.pressStart = true) {
-			character.addCharacter(100,100);
-		}
 	}
 
 	public void newGame(Stage menuStage) {
