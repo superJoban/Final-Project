@@ -1,0 +1,140 @@
+import javafx.scene.scene.PixelReader;
+
+public class CollisionCheck {
+	
+	public static boolean checkCollisionW(int width, int height){
+		boolean hitObstacle = false;
+		
+		int i = 0;
+		int j = 0;
+		
+		int h = height;
+		int w = width;
+		
+		for (int i = 0; i < w; i++) {
+			for (int j = 0; j < h; j++) {
+				
+				//get color of the pixel at (i, j)
+				int color = pixelReader.getArgb((int) i, (int) j);
+				int red = (color >> 16) & 0xff;
+				int green = color & 0xff;
+				int blue = (color >> 8) & 0xff;
+				
+				if (red == 255 & green == 140 & blue == 0) {
+					//duck is currently at (i, j)
+					//check if pixel above is an obstacle (not white)
+					int color = pixelReader.getArgb((int) i, (int) j+1);
+					int red1 = (color >> 16) & 0xff;
+					int green1 = color & 0xff;
+					int blue1 = (color >> 8) & 0xff;
+
+					if (red1 != 255 & green1 != 255 & blue1 != 255) {
+						hitObstacle = true;
+					}
+				}
+			}
+		}
+	}
+	
+	public static boolean checkCollisionS(int width, int height){
+		boolean hitObstacle = false;
+		
+		int i = 0;
+		int j = 0;
+		
+		int h = height;
+		int w = width;
+		
+		for (int i = 0; i < w; i++) {
+			for (int j = 0; j < h; j++) {
+				
+				//get color of the pixel at (i, j)
+				int color = pixelReader.getArgb((int) i, (int) j);
+				int red = (color >> 16) & 0xff;
+				int green = color & 0xff;
+				int blue = (color >> 8) & 0xff;
+				
+				if (red == 255 & green == 140 & blue == 0) {
+					//duck is currently at (i, j)
+					//check if pixel below is an obstacle (not white)
+					int color = pixelReader.getArgb((int) i, (int) j-1);
+					int red1 = (color >> 16) & 0xff;
+					int green1 = color & 0xff;
+					int blue1 = (color >> 8) & 0xff;
+
+					if (red1 != 255 & green1 != 255 & blue1 != 255) {
+						hitObstacle = true;
+					}
+				}
+			}
+		}
+	}
+	
+	public static boolean checkCollisionA(int width, int height){
+		boolean hitObstacle = false;
+		
+		int i = 0;
+		int j = 0;
+		
+		int h = height;
+		int w = width;
+		
+		for (int i = 0; i < w; i++) {
+			for (int j = 0; j < h; j++) {
+				
+				//get color of the pixel at (i, j)
+				int color = pixelReader.getArgb((int) i, (int) j);
+				int red = (color >> 16) & 0xff;
+				int green = color & 0xff;
+				int blue = (color >> 8) & 0xff;
+				
+				if (red == 255 & green == 140 & blue == 0) {
+					//duck is currently at (i, j)
+					//check if pixel to left is an obstacle (not white)
+					int color = pixelReader.getArgb((int) i-1, (int) j);
+					int red1 = (color >> 16) & 0xff;
+					int green1 = color & 0xff;
+					int blue1 = (color >> 8) & 0xff;
+
+					if (red1 != 255 & green1 != 255 & blue1 != 255) {
+						hitObstacle = true;
+					}
+				}
+			}
+		}
+	}
+	
+	public static boolean checkCollisionD(int width, int height){
+		boolean hitObstacle = false;
+		
+		int i = 0;
+		int j = 0;
+		
+		int h = height;
+		int w = width;
+		
+		for (int i = 0; i < w; i++) {
+			for (int j = 0; j < h; j++) {
+				
+				//get color of the pixel at (i, j)
+				int color = pixelReader.getArgb((int) i, (int) j);
+				int red = (color >> 16) & 0xff;
+				int green = color & 0xff;
+				int blue = (color >> 8) & 0xff;
+				
+				if (red == 255 & green == 140 & blue == 0) {
+					//duck is currently at (i, j)
+					//check if pixel to right is an obstacle (not white)
+					int color = pixelReader.getArgb((int) i+1, (int) j);
+					int red1 = (color >> 16) & 0xff;
+					int green1 = color & 0xff;
+					int blue1 = (color >> 8) & 0xff;
+
+					if (red1 != 255 & green1 != 255 & blue1 != 255) {
+						hitObstacle = true;
+					}
+				}
+			}
+		}
+	}
+}
