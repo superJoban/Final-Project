@@ -1,0 +1,107 @@
+package application;
+
+import java.awt.image.BufferedImage;
+import java.io.File;
+
+import javax.imageio.ImageIO;
+import javax.imageio.stream.ImageInputStream;
+
+import javafx.animation.AnimationTimer;
+import javafx.application.Application;
+import javafx.event.EventHandler;
+import javafx.scene.*;
+import javafx.scene.image.*;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+
+
+public class collisionCheck extends keyboardEvent{
+	
+	Node player = super.getSpaceCraft();
+	
+	
+	//find player location
+	public int getPlayerX() {
+		int playerX = player.getLayoutX();
+		return playerX;
+	}
+	
+	public int getPlayerY() {
+		int playerY = player.getLayoutY();
+		return playerY;
+	}
+	
+	//get player image width
+	public int getPlayerWidth() {
+		int playerWidth = player.getBoundsInLocal().getWidth();
+		return playerWidth;
+	}
+	
+	//get player image height
+	public int getPlayerHeight() {
+		int playerHeight = player.getBoundsInLocal().getHeight();
+		return playerHeight;
+	}
+	
+	
+	//choose check points
+	//two check points every keyboard event
+	//basically two "front" corners of the player in direction of motion
+	AnimationTimer timer = new AnimationTimer() {
+    	
+        @Override
+        public void handle(long now) {
+            int checkX1 = 0; 
+            int checkX2 = 0;
+            int checkY1 = 0; 
+            int checkY2 = 0;
+
+            if (application.keyboardEvent.up) {
+            	checkX1 = playerX;
+                checkX2 = playerX + playerWidth;
+                checkY1 = playerY; 
+                checkY2 = playerY;
+            }
+            
+            if (application.keyboardEvent.down) {
+            	checkX1 = playerX;
+                checkX2 = playerX + playerWidth;
+                checkY1 = playerY + playerHeight; 
+                checkY2 = playerY + playerHeight;
+            }
+            
+            if (application.keyboardEvent.right) {
+            	checkX1 = playerX + playerWidth;
+                checkX2 = playerX + playerWidth;
+                checkY1 = playerY; 
+                checkY2 = playerY + playerHeight;
+            }
+            
+            if (application.keyboardEvent.left) {
+            	checkX1 = playerX;
+                checkX2 = playerX;
+                checkY1 = playerY; 
+                checkY2 = playerY + playerHeight;
+            }
+            
+            checkCollisionPoint1(checkX1, checkY1);
+            checkCollisionPoint2(checkX2, checkY2);
+        }
+    };
+    timer.start();
+	
+
+    
+    //check for collisions at the two chosen points
+	public boolean checkCollisionPoint1(int checkX1, int checkY1) {
+		boolean collision = false;
+		return collision;
+	}
+	
+	public boolean checkCollisionPoint2(int checkX2, int checkY2) {
+		boolean collision = false;
+		return collision;
+	}
+
+}
