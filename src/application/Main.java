@@ -19,7 +19,7 @@ public class Main extends Application {
 	   try {
 		   StartScreen manager = new StartScreen();
 		   primaryStage = manager.getMainStage();
-		   primaryStage.setTitle("Game??");
+		   primaryStage.setTitle("Meteor Dodger");
 		   primaryStage.show();
 	   } catch(Exception e) {
 		   e.printStackTrace();

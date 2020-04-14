@@ -10,8 +10,10 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundImage;
 import javafx.scene.layout.BackgroundPosition;
 import javafx.scene.layout.BackgroundRepeat;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class StartScreen {
@@ -31,6 +33,7 @@ public class StartScreen {
 		mainStage.setScene(mainScene);
 		//Run all the button methods
 		createButton();
+		logo();
 		//Run the background method
 		createBackground();
 	}
@@ -42,8 +45,6 @@ public class StartScreen {
 	//Method which runs all the different buttons
 	private void createButton() {
 		playButton();
-		optionsButton();
-		creditButton();
 	}
 	//Method for creating Play button
 	public void playButton() {
@@ -55,8 +56,8 @@ public class StartScreen {
 		button.setStyle("-fx-border-color: white; -fx-border-width: 5px; -fx-background-color: #38BFC5; -fx-text-fill: black");
 		button.setFont(font);
 		//Placement for the button
-		button.setLayoutX(100);
-		button.setLayoutY(100);
+		button.setLayoutX(220);
+		button.setLayoutY(200);
 		mainPane.getChildren().add(button);
 		
 		//This method is called, when play button is clicked
@@ -65,38 +66,14 @@ public class StartScreen {
 			@Override
 			//Open a new screen when play is pressed
 			public void handle(ActionEvent event) {
-				GameScreen game = new GameScreen();
-				game.newGame(mainStage);;
+				GameViewManager game = new GameViewManager();
+				game.createNewGame(mainStage);;
 				
 			}
 			
 		});
 	}
 	
-	//Method for the options button
-	public void optionsButton() {
-		Font font = Font.font("Algerian", FontWeight.EXTRA_BOLD, 25); 
-		Button button = new Button(" OPTIONS");
-		//Button Style
-		button.setStyle("-fx-border-color: white; -fx-border-width: 5px; -fx-background-color: #38BFC5; -fx-text-fill: black");
-		button.setFont(font);
-		//x and y position of button
-		button.setLayoutX(100);
-		button.setLayoutY(200);
-		mainPane.getChildren().add(button);
-	}
-	//Method for the credit button
-	public void creditButton() {
-		Font font = Font.font("Algerian", FontWeight.EXTRA_BOLD, 25); 
-		Button button = new Button(" CREDITS ");
-		//Style for the button
-		button.setStyle("-fx-border-color: white; -fx-border-width: 5px; -fx-background-color: #38BFC5; -fx-text-fill: black");
-		button.setFont(font);
-		//Position for the button on the start screen
-		button.setLayoutX(100);
-		button.setLayoutY(300);
-		mainPane.getChildren().add(button);
-	}
 	//Method to create the background for start screen
 	private void createBackground() {
 		//Set backgroungImg to the image in the resource folder
@@ -105,5 +82,22 @@ public class StartScreen {
 		//Set the actual background on the screen
 		mainPane.setBackground(new Background(background));
 	}
-
+	private void logo() {
+		Font font = Font.font("Algerian", FontWeight.EXTRA_BOLD, 55); 
+		//Creating a Text object 
+	      Text text = new Text();      
+	      
+	      //Setting the text to be added. 
+	      text.setFont(font);
+	      text.setText("Meteor Dodger");
+	      text.setFill(Color.AQUA);
+	      //setting the position of the text 
+	      text.setX(100); 
+	      text.setY(130);
+	      mainPane.getChildren().add(text);
+	         
+		
+		
+	}
+	
 }
